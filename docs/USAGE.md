@@ -29,6 +29,17 @@ since they would judge frames before the stream; `flush()` steps that many
 frames of silence so the last real frames get theirs. `sava.run` does both
 for a whole recording.
 
+A server with many live streams steps them together with `sava.Streams`,
+one batched step per frame instead of one step per stream; streams open, push
+and flush at any time, and each stream gets what its own session would:
+
+```python
+streams = sava.Streams(model, capacity=64)             # up to 64 open streams
+caller, other = streams.open(), streams.open()
+frames = streams.push({caller: piece, other: piece})   # Frames by stream id
+frames = streams.flush([caller])                        # ends it, frees its slot
+```
+
 `sava.segment(curves, sava.Policy(), model.lookahead_frames)` and
 `sava.TurnSegmenter` turn the probabilities into turns with the reference
 policy: a turn opens on the first frame judged speech and starts 800 ms
