@@ -24,7 +24,7 @@ within the published tree.
 | path | what |
 |---|---|
 | `src/inworld/sava/__init__.py` | the public API (`inworld` itself is a namespace package: no `src/inworld/__init__.py`) |
-| `src/inworld/sava/*.py` | `config` (the topology), `mel` (the causal log-mel front end), `ssd` (the Mamba-2 scan), `modules` (blocks), `model` (the network and its streaming step), `checkpoint` (the release file), `registry` (released weights by name), `streaming` (sessions and whole-recording curves), `segmenter` (the reference turn policy), `audio`, `cli`, `doctor` (the `sava-doctor` readiness check, not part of the public API) |
+| `src/inworld/sava/*.py` | `config` (the topology), `mel` (the causal log-mel front end), `ssd` (the Mamba-2 scan), `modules` (blocks), `model` (the network and its streaming step), `checkpoint` (the release file), `registry` (released weights by name), `streaming` (sessions and whole-recording curves), `streams` (many streams stepped together), `segmenter` (the reference turn policy), `audio`, `cli`, `doctor` (the `sava-doctor` readiness check, not part of the public API) |
 | `tests/` | mirrors the source tree, `test_<module>.py` per module, `conftest.py` for the tiny model and the paths; `tests/fixtures/` holds the golden-parity clip and its expected logits |
 | `bench/scripts/` | one script per benchmark, `build_vadsuite.py` builds the sets `vadsuite.py` scores from their downloads, `common.py` for what they share, `tables.py` renders the published tables from `bench/results/*.json` |
 | `bench/data/` | the manifests the benchmarks need beyond the public downloads (bench/DATA.md) |
