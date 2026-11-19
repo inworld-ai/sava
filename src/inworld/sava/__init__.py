@@ -30,6 +30,7 @@ from inworld.sava import checkpoint
 from inworld.sava import config
 from inworld.sava import segmenter
 from inworld.sava import streaming
+from inworld.sava import streams
 
 __version__ = "1.0.0"
 
@@ -41,6 +42,7 @@ load_audio = audio.load
 save_audio = audio.save
 run = streaming.run
 Session = streaming.Session
+Streams = streams.Streams
 Curves = streaming.Curves
 Frames = streaming.Frames
 Policy = segmenter.Policy
@@ -55,6 +57,7 @@ __all__ = [
     "Frames",
     "Policy",
     "Session",
+    "Streams",
     "Turn",
     "TurnSegmenter",
     "load",
